@@ -81,41 +81,125 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Column(
-                        children: [
-                          Text(
-                            'LOGIN',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Palette.textColor1),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(top: 3),
-                            height: 2,
-                            width: 55,
-                            color: Colors.orange,
-                          )
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isSignupScreen = false;
+                          });
+                        },
+                        child: Column(
+                          children: [
+                            Text(
+                              'LOGIN',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: !isSignupScreen
+                                      ? Palette.activeColor
+                                      : Palette.textColor1),
+                            ),
+                            if (!isSignupScreen)
+                              Container(
+                                margin: const EdgeInsets.only(top: 3),
+                                height: 2,
+                                width: 55,
+                                color: Colors.orange,
+                              )
+                          ],
+                        ),
                       ),
-                      Column(
-                        children: [
-                          Text(
-                            'SIGNUP',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Palette.textColor1),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(top: 3),
-                            height: 2,
-                            width: 55,
-                            color: Colors.orange,
-                          )
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isSignupScreen = true;
+                          });
+                        },
+                        child: Column(
+                          children: [
+                            Text(
+                              'SIGNUP',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: isSignupScreen
+                                      ? Palette.activeColor
+                                      : Palette.textColor1),
+                            ),
+                            if (isSignupScreen)
+                              Container(
+                                margin: const EdgeInsets.only(top: 3),
+                                height: 2,
+                                width: 55,
+                                color: Colors.orange,
+                              )
+                          ],
+                        ),
                       )
                     ],
+                  ),
+                  SizedBox(
+                    child: Form(
+                        child: Column(
+                      children: [
+                        TextFormField(
+                          decoration: const InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.account_circle,
+                                color: Palette.iconColor,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Palette.textColor1,
+                                  ),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(35))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Palette.textColor1,
+                                  ),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(35)))),
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.account_circle,
+                                color: Palette.iconColor,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Palette.textColor1,
+                                  ),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(35))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Palette.textColor1,
+                                  ),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(35)))),
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.account_circle,
+                                color: Palette.iconColor,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Palette.textColor1,
+                                  ),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(35))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Palette.textColor1,
+                                  ),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(35)))),
+                        )
+                      ],
+                    )),
                   )
                 ]),
               ),
