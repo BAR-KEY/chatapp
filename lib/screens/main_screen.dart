@@ -16,7 +16,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
   String userEmail = '';
   String userPassword = '';
   void _tryValidation() {
-    final isValid = _formKey.currentState!.validate();
+    _formKey.currentState!.validate();
     _formKey.currentState!.save();
   }
 
