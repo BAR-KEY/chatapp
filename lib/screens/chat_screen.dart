@@ -33,7 +33,20 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Chat screen')),
+      appBar: AppBar(
+        title: const Text('Chat screen'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                _authentication.signOut();
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.exit_to_app_sharp,
+                color: Colors.white,
+              ))
+        ],
+      ),
       body: const Center(
         child: Text('Chat screen'),
       ),
